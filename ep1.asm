@@ -1,12 +1,9 @@
-###############################################################################################################################
-###############################################################################################################################
-#####                                                                                                                     #####
-#####                Nome: Karina Duran Munhos                                 Numero: 11295911                           #####
-#####                Exercicio-Programa 1                                                                                 #####
-#####                Arquitetura de Computadores                               Turma: 94                                  #####
-#####                                                                                                                     #####
-###############################################################################################################################
-###############################################################################################################################
+###########################################################################################
+#	Implementa 2 algoritmos de ordena√ß√£o: quickSort e insertionSort em MIPS. Recebe    #
+# os numeros a serem ordenados por meio de um arquivo .txt a ser inserido por comando. Os #
+# n√∫meros devem ser separados por quebra de linha e ap√≥s a execu√ß√£o o arquivo .txt √©      #
+# atualizado com a sequencia ordenada.							      #
+###########################################################################################
 
 ###############################################################################################################################
 .data                                                         
@@ -32,7 +29,7 @@ buffer3: .space 2048
          
 #mensagens ao usuario: 
 Mensagem1: .asciiz "Insira o nome do arquivo .txt a ser ordenado\n"
-Mensagem2: .asciiz "\nQual o algoritmo de ordenaÁ„o? (0 - QuickSort, 1 - Insertion sort) \n"
+Mensagem2: .asciiz "\nQual o algoritmo de ordena√ß√£o? (0 - QuickSort, 1 - Insertion sort) \n"
 Mensagem3: .asciiz "\nNumeros ordenados:\n"
 
 #####################################################################################################################
@@ -72,9 +69,9 @@ addi $sp, $sp, 8
 li   $v0, 13       #abrir arquivo
 la   $a0, Arquivo  #nome do arquivo convertido
 li   $a1, 0        # 0 para ler, 1 para escrever
-li   $a2, 0        # modo È ignorado
+li   $a2, 0        # modo √© ignorado
 syscall            # chama syscall
-move $s0, $v0      # salva o conte˙do do arquivo em $s0 
+move $s0, $v0      # salva o conte√∫do do arquivo em $s0 
 
 li   $v0, 14       # ler o arquivo 
 move $a0, $s0      # conteudo do arquivo  
@@ -91,7 +88,7 @@ syscall
 ################### Fim de abertura de arquivo ##########################
 
 
-############### Chamar func„o para converter o arquivo ################
+############### Chamar func√£o para converter o arquivo ################
 
 move $a0, $s1 #numeros de caracteres a se converter 
 
@@ -448,14 +445,14 @@ la $t9, buffer3
 li $t8, 0xA  #enter entre os numeros
 li $t7, 0x30 #0 em 
 ########################
-li $t1, 10 #para auxilio das operaÁıes
+li $t1, 10 #para auxilio das opera√ß√µes
 ############################
 li $s0, 0 #contador do tamanho do array
 li $s1, 1 #contador de casas decimais do numero
 ###############################################
 percorreArray:
-slt $t6, $s0, $a1 		#o indice È menor que o tamanho?
-beqz $t6, fim1  		#se n„o, pula pro final
+slt $t6, $s0, $a1 		#o indice √© menor que o tamanho?
+beqz $t6, fim1  		#se n√£o, pula pro final
 
 lw $t2, 0($t0)			#se sim, carrega em t2 o valor no indice calculado
 
@@ -466,7 +463,7 @@ isolaNumero:
 slt $t6, $t3, $t1 		#se o valor for menor que 10 pula pro fim
 bne $t6, $zero, char		
 
-div $t3, $t3, $t1 		#sen„o, divide por 10
+div $t3, $t3, $t1 		#sen√£o, divide por 10
 mul $s1, $s1, $t1 		#contador de casas decimais de cada numero recebe mais 10
 j isolaNumero 
 char:
@@ -481,7 +478,7 @@ addi $t3, $t3, 0x30 		#converter para ascii
 sb $t3,($t9) 			#Armazena o valor no buffer3
 addi $t9, $t9, 1		#Vai para o proximo byte do destino (buffer3)
 move $s2, $s1			#Armazena quantas casas decimais o numero atual tinha para comparar com o proximo
-beq $s1, 1, ultimoNumero 	#Caso sÛ tenha uma casa decimal (unidade), pula para o label ultimo numero
+beq $s1, 1, ultimoNumero 	#Caso s√≥ tenha uma casa decimal (unidade), pula para o label ultimo numero
 move $t3, $t2			#t3 recebe o numero sem a ultima casa decimal
 li $s1, 1 			#Recomeca o contador das casas decimais
 j isolaNumero
@@ -493,7 +490,7 @@ div $s3, $s3, $t1
 beq $s3, 10, char
 j zero
 ultimoNumero: 
-slt $t6, $s0, $a1 	#o indice È menor que o tamanho?
+slt $t6, $s0, $a1 	#o indice √© menor que o tamanho?
 beqz $t6, fim1 		#Se nao, acabou a conversao
 sb $t8, ($t9)  		#Armazena quebra de linha entre os numeros convertidos
 addi $t9, $t9, 1	#Proximo byte
@@ -578,7 +575,7 @@ add $t4, $t1, $a0   	# $t4 eh o endereco
 lw $t6,($t4)        	# $t6 = array[i]
 
 slt $s1, $t5, $t6   	# Verifica se array[i] <= j
-bne $s1, $zero, while3 	# Se n„o, pula para o proximo while
+bne $s1, $zero, while3 	# Se n√£o, pula para o proximo while
 
 
 slt $s1, $s5, $t1   	# (&&) Verifica se i <= direita
