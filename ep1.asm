@@ -1,8 +1,8 @@
 ###########################################################################################
-#	Implementa 2 algoritmos de ordenação: quickSort e insertionSort em MIPS. Recebe    #
-# os numeros a serem ordenados por meio de um arquivo .txt a ser inserido por comando. Os #
-# números devem ser separados por quebra de linha e após a execução o arquivo .txt é      #
-# atualizado com a sequencia ordenada.							      #
+#	Implementa 2 algoritmos de ordenação: quickSort e insertionSort em MIPS. Recebe   
+# os numeros a serem ordenados por meio de um arquivo .txt a ser inserido por comando. Os
+# números devem ser separados por quebra de linha e após a execução o arquivo .txt é     
+# atualizado com a sequencia ordenada.							     
 ###########################################################################################
 
 ###############################################################################################################################
