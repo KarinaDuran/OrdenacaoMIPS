@@ -1,14 +1,9 @@
-###############################################################################################################################
-###############################################################################################################################
-#####                                                                                                                     #####
-#####                Nome: Karina Duran Munhos                                 Numero: 11295911                           #####
-#####                Exercicio-Programa 1                                                                                 #####
-#####                Arquitetura de Computadores                               Turma: 94                                  #####
-#####                                                                                                                     #####
-###############################################################################################################################
-###############################################################################################################################
-
-###############################################################################################################################
+###########################################################################################
+#	Implementa 2 algoritmos de ordenação: quickSort e insertionSort em MIPS. Recebe   #
+# os numeros a serem ordenados por meio de um arquivo .txt a ser inserido por comando. Os #
+# números devem ser separados por quebra de linha e após a execução o arquivo .txt é 	  #
+# atualizado com a sequencia ordenada.							  #
+###########################################################################################
 .data                                                         
 #Espaco para o nome do arquivo inserido 
 StringArquivo:.ascii ""
@@ -32,7 +27,7 @@ buffer3: .space 2048
          
 #mensagens ao usuario: 
 Mensagem1: .asciiz "Insira o nome do arquivo .txt a ser ordenado\n"
-Mensagem2: .asciiz "\nQual o algoritmo de ordena��o? (0 - QuickSort, 1 - Insertion sort) \n"
+Mensagem2: .asciiz "\nQual o algoritmo de ordenação? (0 - QuickSort, 1 - Insertion sort) \n"
 Mensagem3: .asciiz "\nNumeros ordenados:\n"
 
 #####################################################################################################################
@@ -74,9 +69,9 @@ addi $sp, $sp, 8
 li   $v0, 13       # Abrir arquivo
 la   $a0, Arquivo  # Nome do arquivo
 li   $a1, 0        # 0 para ler, 1 para escrever
-li   $a2, 0        # Modo � ignorado
+li   $a2, 0        # Modo é ignorado
 syscall            
-move $s0, $v0      # Salva o conte�do do arquivo em $s0 
+move $s0, $v0      # Salva o conteúdo do arquivo em $s0 
 
 
 li   $v0, 14       # Ler o arquivo 
@@ -610,7 +605,7 @@ add $t4, $t1, $a0   	# $t4 eh o endereco
 lw $t6,($t4)        	# $t6 = array[i]
 
 slt $s1, $t5, $t6   	# Verifica se array[i] <= j
-bne $s1, $zero, while3 	# Se n�o, pula para o proximo while
+bne $s1, $zero, while3 	# Se não, pula para o proximo while
 
 
 slt $s1, $s5, $t1   	# (&&) Verifica se i <= direita
